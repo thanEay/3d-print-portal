@@ -20,16 +20,18 @@ def student_post():
     session["color"] = color
     session["color2"] = color2
     # session[""] = 
+    # TODO: SQL stuff here
     return redirect(url_for("submit"))
     
 @app.get("/submit")
 def submit():
-    return f'''
-    {session["name"]}
-    {session["email"]}
-    {session["color"]}
-    {session["color2"]}
-    '''
+    html = f'''<h1>Thank you for submitting</h1><ul>
+    <li>{session["name"]}</li>
+    <li>{session["email"]}</li>
+    <li>{session["color"]}</li>
+    <li>{session["color2"]}</li>
+    </ul>'''
+    return html
 
 if __name__ == "__main__":
     app.run(debug=True)
