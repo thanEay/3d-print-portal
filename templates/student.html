@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Print Portal</title>
+</head>
+<body>
+    <h1>Submit a 3D Print Job</h1>
 
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p><strong>{{ message }}</strong></p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('student_post') }}" method="POST" enctype="multipart/form-data">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="color">Print Color:</label><br>
+        <small>Note: not all colors may be available. Please provide a second choice in case your first is not in stock.</small><br>
+        <input type="text" id="color" name="color" placeholder="First choice" required><br>
+        <input type="text" id="color2" name="color2" placeholder="Second choice" required><br><br>
+
+        <label for="filament_type">Filament Type:</label><br>
+        <select id="filament_type" name="filament_type" required>
+            <option value="" selected>-- Select --</option>
+            <option value="PLA">PLA</option>
+            <option value="PETG">PETG</option>
+            <option value="TPU">TPU</option>
+            <option value="Doesn't matter">Doesn't matter</option>
+        </select><br><br>
+
+        <label for="infill">Infill % (1-100):</label><br>
+        <input type="number" id="infill" name="infill" min="1" max="100" value="7" required><br><br>
+
+        <label for="description">Model Description:</label><br>
+        <input type="text" id="description" name="description" placeholder="Brief description of what you're printing" style="width: 400px;" required><br><br>
+
+        <label for="notes">Notes (optional):</label><br>
+        <textarea id="notes" name="notes" rows="4" cols="40"></textarea><br><br>
+
+        <label for="file">Upload .stl File:</label><br>
+        <input type="file" id="file" name="file" accept=".stl"><br><br>
+
+        <button type="submit">Submit Print Job</button>
+    </form>
+</body>
+</html>
