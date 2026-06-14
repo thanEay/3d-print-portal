@@ -6,7 +6,7 @@ Made during Hack Club Stardance, it allows students at a school to upload models
 
 - Students can upload 3D models to a website that is exposed to the network
 - Two main pages, one for an admin/teacher and one for any students that want to upload 3D models
-- Uses a database/spreadsheet (tbd) to hold student names, timestamp of uploads, print colors, filament types, some basic print settings like infill, any notes about the print, and the path to a folder with the models 
+- Uses a database/spreadsheet (tbd) to hold student names, emails, timestamp of uploads, print colors, filament types, some basic print settings like infill, any notes about the print, and the path to a folder with the models 
     - All of these other than timestamp and file path are input manually by the student
 
 ## Purpose
